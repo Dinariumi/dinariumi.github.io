@@ -1,0 +1,45 @@
+# bundle exec jekyll serve
+
+title:       "Николай Громов"
+email:       "nicothin@gmail.com"
+description: "Блог о веб-разработке"
+copyright:   "© Николай Громов. Внутренняя Монголия, вечность, лето."
+
+date_format: "%-d.%m.%Y"
+lang: ru
+paginate: 8
+paginate_path: "/home/next/:num"
+
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+
+vkontakte_username: "n.gromov"
+github_username:    "nicothin"
+youtube_channel:    "UC755nnsqbwosIkRlXRDfZKQ"
+twitter_username:   "nicothin"
+instagram_username: "nicothinum"
+
+exclude:
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
+
+show_excerpts: false # set to true to show excerpts on the homepage
+
+# В пункты главной навигации попадут:
+header_pages:
+  - index.html
+  - about.md
+  - contact.md
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+sass:
+  style: compressed

@@ -1,0 +1,23 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" class="page">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page__content" role="main">
+
+      {{ content }}
+
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>

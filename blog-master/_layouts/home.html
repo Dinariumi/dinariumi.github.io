@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div class="posts-list">
+
+  <div class="header">
+    <div class="header__inner">
+      <h1 class="header__title">
+        <!-- Есть есть имя категории — покажем название категории -->
+        {% if page.catName %}
+          {{ site.data.categories[page.catName].title }}
+        {%- elsif page.title -%}
+          {{ page.title }}
+        <!-- Иначе покажем название сайта -->
+        {%- else -%}
+          {{ site.title }}
+        {% endif %}
+      </h1>
+      <p class="header__subtitle">
+        {% if page.catName %}
+          {{ site.data.categories[page.catName].description }}
+        {%- elsif page.description -%}
+          {{ page.description }}
+        {%- else -%}
+          {{ site.description }}
+        {% endif %}
+      </p>
+    </div>
+  </div>
+
+  {{ content }}
+
+</div>

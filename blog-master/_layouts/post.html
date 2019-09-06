@@ -1,0 +1,89 @@
+---
+layout: default
+---
+<article class="post">
+
+  <header class="header"{% if page.pict %} style="background-image: url({{site.url}}/img/{{page.pict}})"{% endif %}>
+    <div class="header__inner">
+      <h1 class="header__title">{{ page.title }}</h1>
+      {% if page.subtitle %}
+        <p class="header__subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+      <p class="header__meta">
+        <time class="header__date" datetime="{{ page.date | date_to_xmlschema }}">
+          {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
+          {{ page.date | date: date_format }}
+        </time>
+      </p>
+    </div>
+  </header>
+
+  <div class="post__content">
+    {{ content
+      | replace: " — ", " — "
+      | replace: " вы ", " вы "
+      | replace: " в ", " в "
+      | replace: "(в ", "(в "
+      | replace: " В ", " В "
+      | replace: " и ", " и "
+      | replace: "(и ", "(и "
+      | replace: " к ", " к "
+      | replace: " К ", " К "
+      | replace: " с ", " с "
+      | replace: " С ", " С "
+      | replace: " о ", " о "
+      | replace: " про ", " про "
+      | replace: " а ", " а "
+      | replace: " по ", " по "
+      | replace: " во ", " во "
+      | replace: " от ", " от "
+      | replace: " об ", " об "
+      | replace: " со ", " со "
+      | replace: " за ", " за "
+      | replace: " то ", " то "
+      | replace: " но ", " но "
+      | replace: " он ", " он "
+      | replace: " она ", " она "
+      | replace: " же ", " же "
+      | replace: " не ", " не "
+      | replace: " на ", " на "
+      | replace: " Не ", " Не "
+      | replace: " при ", " при "
+      | replace: " его ", " его "
+      | replace: " их ", " их "
+      | replace: " её ", " её "
+      | replace: " своё ", " своё "
+      | replace: " мой ", " мой "
+      | replace: " из ", " из "
+      | replace: " как ", " как "
+      | replace: " я ", " я "
+      | replace: " Я ", " Я "
+      | replace: " для ", " для "
+      | replace: " Для ", " Для "
+      | replace: "это же", "это же"
+    }}
+  </div>
+
+  <div class="post__donate">
+    Понравилась статья? Ставьте лайк, делитесь в&nbsp;соц.&nbsp;сетях или&nbsp;<a href="https://money.yandex.ru/to/41001252765094/100">купите мне кофе</a>.
+  </div>
+
+  <div id="gitmentContainer" class="comments"></div>
+
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://ihtcboy.com/script/gitment.browser.js"></script>
+  <script>
+    var gitment = new Gitment({
+      id: "{{page.slug}}",
+      title: "{{ page.title | replace: '&nbsp;', ' ' }} ({{ page.date | date: date_format }})",
+      owner: "nicothin",
+      repo: "nicothin.github.io",
+      oauth: {
+        client_id: "9e61c261bad02ac1bb9c",
+        client_secret: "df2cfec3ced682e68599b3b84fd6bdfedd67f9ef",
+      },
+    });
+    gitment.render('gitmentContainer');
+  </script>
+
+</article>

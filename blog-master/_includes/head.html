@@ -1,0 +1,21 @@
+<head>
+  <meta charset="utf-8">
+
+  <title>{% if page.title %}{{ page.title | replace: '&nbsp;', ' ' }} – {% endif %}{{ site.title }}</title>
+  {% if page.subtitle %}
+  <meta name="description" content="{{ page.subtitle | replace: '&nbsp;', ' ' }}" />
+  <meta property="og:description" content="{{ page.subtitle | replace: '&nbsp;', ' ' }}" />
+  {% else %}
+  <meta name="description" content="{{ site.description | replace: '&nbsp;', ' ' }}">
+  <meta property="og:description" content="{{ site.description | replace: '&nbsp;', ' ' }}" />
+  {% endif %}
+  <meta name="author" content="{{ site.title }}" />
+  {% if page.title %}
+  <meta property="og:title" content="{{ page.title | replace: '&nbsp;', ' ' }}" />
+  {% endif %}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ "/assets/style.css" | relative_url }}">
+
+  {%- include google-analytics.html -%}
+</head>
